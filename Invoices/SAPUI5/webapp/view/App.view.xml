@@ -1,9 +1,16 @@
-<mvc:View   controllerName="Alfa.SAPUI5.controller.App"
-            xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
-        <Button id="btn" text="{i18n>showHelloButtonText}" press=".onShowHello"></Button>
-        <Input id="Var"
-               value="{/recipient/name}"
-               description="Hello {/recipient/name}"
-               valueLiveUpdate="true"
-               width="60%"></Input> 
+<mvc:View controllerName="Alfa.SAPUI5.controller.App" 
+          xmlns="sap.m" 
+          xmlns:mvc="sap.ui.core.mvc" 
+          displayBlock="true">
+          <App id="App">
+            <pages>
+                <Page id="content" title="{i18n>appTitle}">
+                <Button id="btn" text="{i18n>showHelloButtonText}" press=".onShowHello" />
+                <Input id="Var" value="{/recipient/name}" 
+                        description="Hello {/recipient/name}"
+                        valueLiveUpdate="true" 
+                        width="60%" />
+                </Page>
+            </pages>
+          </App>
 </mvc:View>
