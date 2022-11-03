@@ -5,11 +5,17 @@
           <App id="App">
             <pages>
                 <Page id="content" title="{i18n>appTitle}">
-                <Button id="btn" text="{i18n>showHelloButtonText}" press=".onShowHello" />
-                <Input id="Var" value="{/recipient/name}" 
-                        description="Hello {/recipient/name}"
-                        valueLiveUpdate="true" 
-                        width="60%" />
+                    <content>
+                        <Panel id="Panel1" headerText="{i18n>helloPanel}">
+                            <content>
+                                <Button id="btn" text="{i18n>showHelloButtonText}" press=".onShowHello" />
+                                <Input id="Var" value="{/recipient/name}" 
+                                        description="Hello {/recipient/name}"
+                                        valueLiveUpdate="true" 
+                                        width="60%" />
+                            </content>
+                        </Panel>
+                    </content>
                 </Page>
             </pages>
           </App>
