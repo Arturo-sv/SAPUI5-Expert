@@ -1,14 +1,30 @@
 <mvc:View controllerName="Alfa.SAPUI5.controller.InvoicesList"
           xmlns="sap.m"
           xmlns:mvc="sap.ui.core.mvc">
-    <List id="List1" headerText="{i18n>invoiceLisTitle}" 
+    <List id="invoiceList" headerText="{i18n>invoiceLisTitle}" 
                      class="sapUiResponsiveMargin" 
                      width="auto" 
-                     items="{invoices>/Invoices}">
+                     items="{ path: 'invoices>/Invoices', 
+                              sorter : { path : 'ShipperName',
+                                         group : true}
+                              }">
+        <headerToolbar>
+            <Toolbar id="toolbar1">
+                <Title id="titleInvoicesList" text="{i18n>invoiceLisTitle}"/>
+                <ToolbarSpacer id= "toolbarSpace1"/>
+                <SearchField id="searchField" width="50%" search=".onFilterInvoices" />
+            </Toolbar>
+        </headerToolbar>
         <items>
             <ObjectListItem id="ObjList1" title="{invoices>Quantity} x {invoices>ProductName}"
                                           number="{ parts : [ {path : 'invoices>ExtendedPrice'}]}"    
-                                          numberUnit="{currency>/usd}" />
+                                          numberUnit="{currency>/usd}"
+                                          numberState="{= ${invoices>ExtendedPrice} > 50 ? 'Success' : 'Error'}"> 
+                <firstStatus>
+                    <ObjectStatus id="OSListView1" text="{ path: 'invoices>Status',
+                                                           formatter : '.formatter.invoicesStatus' }"></ObjectStatus>
+                </firstStatus>
+            </ObjectListItem>
         </items>
     </List>
 </mvc:View>

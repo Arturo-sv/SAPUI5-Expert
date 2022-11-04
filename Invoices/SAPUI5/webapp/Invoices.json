@@ -23,6 +23,22 @@
             "ShipperName": "ACME",
             "ShipperDate": "2015-03-02t00:00:00",
             "Status": "B"
+        },
+        {
+            "ProductName": "Intel Core i7-9700k 3.6Ghz",
+            "Quantity": 2,
+            "ExtendedPrice": 8.8000,
+            "ShipperName": "ACME",
+            "ShipperDate": "2015-04-12t00:00:00",
+            "Status": "C"
+        },
+        {
+            "ProductName": "AMD Radeon RX580 8GB GDDR5",
+            "Quantity": 1,
+            "ExtendedPrice": 2.71212,
+            "ShipperName": "Fun Inc.",
+            "ShipperDate": "2015-01-27t00:00:00",
+            "Status": "A"
         }
     ]
 }
