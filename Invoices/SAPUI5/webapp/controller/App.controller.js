@@ -1,14 +1,11 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller",
-    "sap/m/MessageToast"
+    "sap/ui/core/mvc/Controller"
 ],
     /**
      * 
      * @param {typeof sap.ui.core.mvc.Controller} Controller
-     * @param {typeof sap.m.MessageToast} MessageToast
-     * @param {typeof sap.ui.model.resource.ResourceModel} ResourceModel
      */
-    function (Controller, MessageToast, Models, ResourceModel) {
+    function (Controller) {
         "use strict";
 
         return Controller.extend("Alfa.SAPUI5.controller.App", {
@@ -17,12 +14,8 @@ sap.ui.define([
 
             },
 
-            onShowHello: function () {
-                //read text from i18n model
-                var oBundle = this.getView().getModel("i18n").getResourceBundle();
-                var sRecipient = this.getView().getModel().getProperty("/recipient/name")
-                var sMsg = oBundle.getText("helloMsg",[sRecipient]);
-                MessageToast.show(sMsg);
+            onOpenDialogHeader: function() {
+                this.getOwnerComponent().onOpenHelloDialog();
             }
         });
     });
