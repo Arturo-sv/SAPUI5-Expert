@@ -1,10 +1,11 @@
 <mvc:View controllerName="Alfa.SAPUI5.controller.InvoicesList"
           xmlns="sap.m"
           xmlns:mvc="sap.ui.core.mvc">
-    <List id="invoiceList" headerText="{i18n>invoiceLisTitle}" 
-                     class="sapUiResponsiveMargin" 
-                     width="auto" 
-                     items="{ path: 'invoices>/Invoices', 
+    <List id="invoiceList" 
+          headerText="{i18n>invoiceLisTitle}" 
+          class="sapUiResponsiveMargin" 
+          width="auto" 
+          items="{ path: 'northwind>/Invoices', 
                               sorter : { path : 'ShipperName',
                                          group : true}
                               }">
@@ -16,14 +17,15 @@
             </Toolbar>
         </headerToolbar>
         <items>
-            <ObjectListItem id="ObjList1" title="{invoices>Quantity} x {invoices>ProductName}"
-                                          number="{ parts : [ {path : 'invoices>ExtendedPrice'}]}"    
+            <ObjectListItem id="ObjList1" title="{northwind>Quantity} x {northwind>ProductName}"
+                                          number="{ parts : [ {path : 'northwind>ExtendedPrice'},
+                                                              {path : 'currency>/usd'}],
+                                                    type: 'sap.ui.model.type.Currency',
+                                                    formatOptions: {
+                                                        showMeasure : false
+                                                        }}"    
                                           numberUnit="{currency>/usd}"
-                                          numberState="{= ${invoices>ExtendedPrice} > 50 ? 'Success' : 'Error'}"> 
-                <firstStatus>
-                    <ObjectStatus id="OSListView1" text="{ path: 'invoices>Status',
-                                                           formatter : '.formatter.invoicesStatus' }"></ObjectStatus>
-                </firstStatus>
+                                          numberState="{= ${northwind>ExtendedPrice} > 50 ? 'Success' : 'Error'}"> 
             </ObjectListItem>
         </items>
     </List>

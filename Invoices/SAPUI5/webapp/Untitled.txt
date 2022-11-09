@@ -1,0 +1,19 @@
+         "mainService": {
+        "uri": "/sap/opu/odata/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }, 
+
+
+
+      InvoicesList
+
+
+                      <firstStatus>
+                    <ObjectStatus id="OSListView1" text="{ path: 'northwind>Status',
+                                                           formatter : '.formatter.invoicesStatus' }"></ObjectStatus>
+                </firstStatus>
